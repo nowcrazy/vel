@@ -14,6 +14,14 @@ export const constantRoutes = [
       },
     ],
   },
+  {
+    path:"/login",
+    component: () => import("@/views/login")
+  },
+  {
+    path:"/register",
+    component: () => import("@/views/register")
+  }
 ];
 const router = createRouter({
   history: createWebHistory(),
