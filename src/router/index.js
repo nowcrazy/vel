@@ -2,17 +2,16 @@
 import { createRouter, createWebHistory } from 'vue-router';
 export const constantRoutes = [
   {
-    path: "/",
-    // component: Layout,
-    redirect: "/login",
-    children: [
+    path:'',
+    redirect:'/index',
+    children:[
       {
-        path: "/login",
-        component: () => import("@/views/login"),
-        name: "login",
-        meta: { title: "login", icon: "dashboard", affix: true },
-      },
-    ],
+        path:'index',
+        component:()=>import("@/views/index/index"),
+        name:'Index',
+        meta:{title:"首页",icon:"dashboard",affix:true}
+      }
+    ]
   },
   {
     path:"/login",
