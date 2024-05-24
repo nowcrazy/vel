@@ -9,13 +9,22 @@ const whiteList=['/login','/register'];
 
 router.beforeEach((to, from, next) => {
     NProgress.start()
-    if(getToken()){
-        //  //如果白名单中出现最后的路由地址
-        // else if(whiteList.indexOf(to.path)!=-1){
-        //     next()
-        // }
-    }
+   
+    if (getToken()) {
+      //to.meta.title && useSettingsStore().setTitle(to.meta.title)
+      /* has token*/
+      if (to.path === '/login') {
+        next({ path: '/' })
+        NProgress.done()
+      } else if (whiteList.indexOf(to.path) !== -1) {
+        next()
+      } else {
+      
+          next()
+      }
+    } 
     else{
+      
          // 没有token
         if (whiteList.indexOf(to.path) !== -1) {
            // 在免登录白名单，直接进入
